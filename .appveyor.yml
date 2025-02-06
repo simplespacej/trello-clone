@@ -1,0 +1,25 @@
+version: 1.0.{build}
+image: Ubuntu
+
+install:
+  - npm install
+
+build_script:
+  - npm run build
+  - ls -la dist
+
+artifacts:
+  - path: dist
+    name: build
+
+deploy_script:
+  - export GIT_AUTHOR_NAME="Appveyor"
+  - export GIT_AUTHOR_EMAIL="appveyor@ci.com"
+  - export GIT_COMMITTER_NAME="Appveyor"
+  - export GIT_COMMITTER_EMAIL="appveyor@ci.com"
+  - git config --global user.email "appveyor@ci.com"
+  - git config --global user.name "Appveyor CI"
+  - git remote set-url origin https://$GITHUB_TOKEN@github.com/simplespacej/trello-clone.git
+  - ls -la dist
+  - npm run deploy
+
