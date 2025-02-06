@@ -1,0 +1,137 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+}
+
+.board {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: auto;
+    padding: 10px;
+    align-items: flex-start;
+}
+
+/* Колонки */
+.column {
+    background: white;
+    padding: 15px;
+    border-radius: 5px;
+    width: 320px;
+    min-width: 300px;
+    max-width: 320px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2 {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.cards {
+    width: 100%;
+    min-height: 150px;
+    background: #f0f0f0;
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: hidden;
+    flex-grow: 1;
+}
+
+.card {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    max-width: 100%;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+    cursor: grab;
+}
+
+.remove-card {
+    visibility: hidden;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    color: red;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.card:hover .remove-card {
+    visibility: visible;
+}
+
+.card span {
+    display: block;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+.add-card {
+    background: #0079bf;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.add-card:hover {
+    background: #005ea6;
+}
+
+.card.dragging {
+    cursor: grabbing !important;
+    opacity: 0.7;
+}
+
+@media (max-width: 1024px) {
+    .board {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .column {
+        width: 45%;
+    }
+}
+
+@media (max-width: 768px) {
+    .board {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .column {
+        width: 90%;
+        max-width: 100%;
+    }
+}
