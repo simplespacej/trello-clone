@@ -1,0 +1,21 @@
+{
+  "name": "trello-clone",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:simplespacej/trello-clone.git",
+  "author": "simplespacej <my-ptogramming@mail.ru>",
+  "license": "MIT",
+  "scripts": {
+      "build": "webpack",
+      "start": "webpack serve",
+      "deploy": "gh-pages -d dist"
+},
+  "devDependencies": {
+    "css-loader": "^7.1.2",
+    "gh-pages": "^6.3.0",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.0"
+  }
+}
